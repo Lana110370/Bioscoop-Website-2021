@@ -6,6 +6,30 @@
     border-bottom: #000000 50px solid;
 }
 
+header ul {
+       margin: 0;
+       padding: 0;
+    }
+
+header li {
+      display: inline;
+      padding: 20px 60px 20px 60px;
+    }
+
+header a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 22px;
+ }
+
+
+header nav {
+     margin-top: 90px;
+     margin-bottom: 10px;
+     float: left;
+     margin-left: 330px;
+ }
+
 p {
     font-family: sans-serif;
     font-style: normal;
