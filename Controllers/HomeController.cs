@@ -28,6 +28,11 @@ namespace Bioscoop_Website_2021.Controllers
             return View();
         }
 
+        public IActionResult ShowAll()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
