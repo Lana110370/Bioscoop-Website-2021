@@ -32,7 +32,12 @@ namespace Bioscoop_Website_2021.Controllers
         {
             return View();
         }
+
         public IActionResult Films()
+        {
+            return View();
+        }
+        public IActionResult Evenementen()
         {
             return View();
         }
