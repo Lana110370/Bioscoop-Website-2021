@@ -44,7 +44,7 @@ namespace Bioscoop_Website_2021.Controllers
                 conn.Open();
 
                 // SQL query die we willen uitvoeren
-                MySqlCommand cmd = new MySqlCommand("select * from product", conn);
+                MySqlCommand cmd = new MySqlCommand("select * from film", conn);
 
                 // resultaat van de query lezen
                 using (var reader = cmd.ExecuteReader())
@@ -53,7 +53,7 @@ namespace Bioscoop_Website_2021.Controllers
                     while (reader.Read())
                     {
                         // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
-                        string Name = reader["Naam"].ToString();
+                        string Name = reader["Titel"].ToString();
 
                         // voeg de naam toe aan de lijst met namen
                         names.Add(Name);
