@@ -8,6 +8,10 @@
 <div id="hometext">
     <h1>Welkom!</h1>
     <p>Bekijk nu onze nieuwe releases!</p>
+    @foreach(string Titel in Model)
+    {
+        <p>@Titel</p>
+    }
 </div>
 
 <style>
