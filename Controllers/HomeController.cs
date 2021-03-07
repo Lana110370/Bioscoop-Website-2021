@@ -24,10 +24,10 @@ namespace Bioscoop_Website_2021.Controllers
         public IActionResult Index()
         {
             // alle namen ophalen
-            var names = GetNames();
+            var film = GetProducts();
 
             // stop de namen in de html
-            return View(names);
+            return View(film);
         }
 
         public List<string> GetNames()
