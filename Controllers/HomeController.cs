@@ -140,3 +140,38 @@ namespace Bioscoop_Website_2021.Controllers
         }
     }
 }
+
+[Route('film/{id}')]
+
+public IActionResult Film(string id)
+{
+    var model = GetFilm(id);
+
+    return View(model):
+}
+
+private Film GetFilm(string id)
+{
+    List<Film> films = new List<Film>();
+
+    using (MySqlCommand conn = new MySqlConnection(connectionString))
+    {
+        conn.Open();
+        MySqlCommand cmd = new MySqlCommand($'select * from product where id = {id}', conn); 
+
+        using (var reader = cmd.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                Film p = new Film
+                {
+                    id = Convert.ToInt32(reader['Id']),
+                    Titel = reader['Titel'].ToString(),
+                    Beschrijving = reader['Beschrijving'].ToString()
+                };
+                films.Add(p); 
+            }
+        }
+    }
+    return films[0]; 
+}
