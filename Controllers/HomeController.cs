@@ -15,6 +15,8 @@ namespace Bioscoop_Website_2021.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        // stel in waar de database gevonden kan worden
+        private readonly string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -32,9 +34,6 @@ namespace Bioscoop_Website_2021.Controllers
 
         public List<string> GetNames()
         {
-            // stel in waar de database gevonden kan worden
-            string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
-
             // maak een lege lijst waar we de namen in gaan opslaan
             List<string> names = new List<string>();
 
@@ -67,9 +66,7 @@ namespace Bioscoop_Website_2021.Controllers
         }
 
         public List<Film> GetProducts()
-        {
-            // stel in waar de database gevonden kan worden
-            string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
+        {          
 
             // maak een lege lijst waar we de namen in gaan opslaan
             List<Film> products = new List<Film>();
@@ -93,9 +90,9 @@ namespace Bioscoop_Website_2021.Controllers
                         {
                             // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
                             id = Convert.ToInt32(reader["Id"]),
-                            Titel = Convert.ToInt32(reader["Titel"]),
+                            Titel = reader["Titel"].ToString(),
                             Leeftijdsgrens = Convert.ToInt32(reader["Leeftijdsgrens"]),
-                            Beschrijving = Convert.ToInt32(reader["Beschrijving"]),
+                            Beschrijving = reader["Beschrijving"].ToString(),
                         };
 
                         // voeg de naam toe aan de lijst met namen
@@ -131,6 +128,40 @@ namespace Bioscoop_Website_2021.Controllers
         public IActionResult Contact()
         {
             return View();
+        }       
+
+        [Route("film/{id}")]
+        public IActionResult Film(string id)
+        {
+            var model = GetFilm(id);
+
+            return View(model);
+        }
+
+        private Film GetFilm(string id)
+        {
+            List<Film> films = new List<Film>();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand($"select * from product where id = {id}", conn);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Film p = new Film
+                        {
+                            id = Convert.ToInt32(reader["Id" ]),
+                            //Titel = reader["Titel"].ToString(),
+                            //Beschrijving = reader["Beschrijving"].ToString()
+                        };
+                        films.Add(p);
+                    }
+                }
+            }
+            return films[0];
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -139,39 +170,4 @@ namespace Bioscoop_Website_2021.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
-}
-
-[Route('film/{id}')]
-
-public IActionResult Film(string id)
-{
-    var model = GetFilm(id);
-
-    return View(model):
-}
-
-private Film GetFilm(string id)
-{
-    List<Film> films = new List<Film>();
-
-    using (MySqlCommand conn = new MySqlConnection(connectionString))
-    {
-        conn.Open();
-        MySqlCommand cmd = new MySqlCommand($'select * from product where id = {id}', conn); 
-
-        using (var reader = cmd.ExecuteReader())
-        {
-            while (reader.Read())
-            {
-                Film p = new Film
-                {
-                    id = Convert.ToInt32(reader['Id']),
-                    Titel = reader['Titel'].ToString(),
-                    Beschrijving = reader['Beschrijving'].ToString()
-                };
-                films.Add(p); 
-            }
-        }
-    }
-    return films[0]; 
 }

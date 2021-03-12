@@ -9,11 +9,11 @@ namespace Bioscoop_Website_2021.Database
     {
         public int id { get; set; }
 
-        public int Titel { get; set; }
+        public string Titel { get; set; }
 
         public int Leeftijdsgrens { get; set; }
 
-        public int Beschrijving { get; set; }
+        public string Beschrijving { get; set; }
 
     }
 }
