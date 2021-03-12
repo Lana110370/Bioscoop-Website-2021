@@ -1,6 +1,5 @@
 ﻿using Bioscoop_Website_2021.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,6 +15,7 @@ namespace Bioscoop_Website_2021.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         // stel in waar de database gevonden kan worden
+        // private readonly string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
         private readonly string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
 
         public HomeController(ILogger<HomeController> logger)
