@@ -125,6 +125,11 @@ namespace Bioscoop_Website_2021.Controllers
             return View();
         }
 
+        public IActionResult Detailpagina()
+        {
+            return View();
+        }
+
         public IActionResult Contact()
         {
             return View();
