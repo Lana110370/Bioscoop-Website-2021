@@ -11,7 +11,7 @@
     <p>Bekijk nu onze nieuwe releases!</p>
     @foreach(Film p in Model)
     {
-        <p> @p.Titel - @p.Leeftijdsgrens - @p.Beschrijving </p>
+        <a href="/film/@p.id"> @p.Titel</a>
     }
 </div>
 
