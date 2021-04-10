@@ -9,11 +9,20 @@
 <div id="hometext">
     <h1>Welkom!</h1>
     <p>Bekijk nu onze nieuwe releases!</p>
-    @foreach(Film p in Model)
-    {
-        <a href="/film/@p.id"> @p.Titel</a>
-    }
 </div>
+
+<div id="homefilms">
+
+    @foreach (Film p in Model)
+
+    {
+
+      <ul><a href="/film/@p.id"> @p.Titel</a></ul>
+        
+    }
+
+</div>
+
 
 <style>
 
@@ -27,5 +36,14 @@
         color: #000000;
         text-align: center;
         font-size: 30px;
+    }
+
+    #homefilms a {
+       color: #000000;
+       text-decoration: none; 
+    }
+
+    #homefilms ul {
+      text-align: center; 
     }
 </style>
