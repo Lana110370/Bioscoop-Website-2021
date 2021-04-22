@@ -74,14 +74,14 @@ footer p{
 }
 
 footer {
-    padding: 10px 10px 0px 10px;
     left: 0;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
     height: 135px;
     background: #B01304;
     overflow: hidden;
     margin: 0;
+    position: fixed;
 }
 
 

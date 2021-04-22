@@ -106,31 +106,36 @@ namespace Bioscoop_Website_2021.Controllers
             return products;
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         public IActionResult ShowAll()
         {
             return View();
         }
 
+        [Route("Privacy")]
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [Route("Films")]
         public IActionResult Films()
         {
             return View();
         }
 
+        [Route("Evenementen")]
         public IActionResult Evenementen()
         {
             return View();
         }
 
+        [Route("Detailpagina")]
         public IActionResult Detailpagina()
         {
             return View();
         }
 
+        [Route("Contact")]
         public IActionResult Contact()
         {
             return View();
