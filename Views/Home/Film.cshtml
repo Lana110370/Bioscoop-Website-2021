@@ -1,5 +1,22 @@
 ﻿@using Bioscoop_Website_2021.Database
 @model Film
 
+<div id="container">
+    <h1>@Model.Titel</h1>
 
-<h1> @Model.Titel</h1>
+    <p>@Model.Beschrijving</p>
+</div>
+
+<style>
+
+  #container{
+    text-align: center
+  }
+
+  #container {
+    font-size: 20px;
+    margin: auto;
+    width: 75%
+   }
+
+</style>
