@@ -4,6 +4,8 @@ header {
     height: 200px;
     min-height: 80px;
     border-bottom: #000000 50px solid;
+    left: 0;
+    right: 0;
 }
 
 header ul {
