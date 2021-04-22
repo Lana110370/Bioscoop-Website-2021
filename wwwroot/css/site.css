@@ -1,4 +1,5 @@
-﻿header {
+﻿
+header {
     background: #B01304;
     height: 200px;
     min-height: 80px;
@@ -75,7 +76,6 @@ footer p{
 }
 
 footer {
-    position: fixed;
     padding: 10px 10px 0px 10px;
     left: 0;
     bottom: 0;
@@ -83,7 +83,7 @@ footer {
     height: 135px;
     background: #B01304;
     overflow: hidden;
-    margin: 0 auto;
+    margin: 0;
 }
 
 
