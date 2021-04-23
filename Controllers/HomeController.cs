@@ -95,6 +95,7 @@ namespace Bioscoop_Website_2021.Controllers
                             Titel = reader["Titel"].ToString(),
                             Leeftijdsgrens = Convert.ToInt32(reader["Leeftijdsgrens"]),
                             Beschrijving = reader["Beschrijving"].ToString(),
+                            Img = reader["foto"].ToString()
                         };
 
                         // voeg de naam toe aan de lijst met namen
@@ -170,7 +171,8 @@ namespace Bioscoop_Website_2021.Controllers
                             Titel = reader["Titel"].ToString(),
                             Leeftijdsgrens = Convert.ToInt32(reader["Leeftijdsgrens"]),
                             Beschrijving = reader["Beschrijving"].ToString(),
-                        };
+                            Img = reader["foto"].ToString()
+                        }; 
                         films.Add(p);
                     }
                 }
