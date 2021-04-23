@@ -12,16 +12,16 @@
 </div>
 
 <div id="homefilms">
+    
+        @foreach (Film p in Model.Take(10))
+        {        
+            <img src="@p.Img" alt="@p.Titel" />
+            <a href="/film/@p.id"> @p.Titel</a>  
 
-    @foreach (Film p in Model)
+        }
+    
 
-    {
-
-      <ul><a href="/film/@p.id"> @p.Titel</a></ul>
-        
-    }
-
-</div>
+    </div>
 
 
 <style>

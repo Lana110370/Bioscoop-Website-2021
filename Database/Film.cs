@@ -15,5 +15,7 @@ namespace Bioscoop_Website_2021.Database
 
         public string Beschrijving { get; set; }
 
+        public string Img { get; set; }
+
     }
 }
