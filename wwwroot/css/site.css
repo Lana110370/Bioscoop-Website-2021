@@ -81,10 +81,9 @@ footer {
     height: 135px;
     background: #B01304;
     overflow: hidden;
-    margin: 0;
-    position: fixed;
+    margin: 0; 
+    position: fixed; 
 }
-
 
 
 

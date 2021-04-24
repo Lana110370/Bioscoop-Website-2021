@@ -2,9 +2,15 @@
 @model Film
 
 <div id="container">
+
     <h1>@Model.Titel</h1>
 
     <p>@Model.Beschrijving</p>
+
+</div>
+
+<div id=" image">
+    <img src="@Model.Img" alt="@Model.Titel" />
 </div>
 
 <style>
@@ -18,5 +24,10 @@
     margin: auto;
     width: 75%
    }
+
+  #image img{
+      width: 250px; 
+      height: 350px; 
+  }
 
 </style>
