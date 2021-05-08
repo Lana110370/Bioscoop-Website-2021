@@ -93,6 +93,8 @@ namespace Bioscoop_Website_2021.Controllers
                             // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
                             id = Convert.ToInt32(reader["Id"]),
                             Titel = reader["Titel"].ToString(),
+                            Genre = Convert.ToInt32(reader["genre_id"]),
+                            Tijdsduur = Convert.ToInt32(reader["Tijdsduur(min)"]),
                             Leeftijdsgrens = Convert.ToInt32(reader["Leeftijdsgrens"]),
                             Beschrijving = reader["Beschrijving"].ToString(),
                             Img = reader["foto"].ToString()
@@ -169,6 +171,8 @@ namespace Bioscoop_Website_2021.Controllers
                             // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
                             id = Convert.ToInt32(reader["Id"]),
                             Titel = reader["Titel"].ToString(),
+                            Genre = Convert.ToInt32(reader["genre_id"]),
+                            Tijdsduur = Convert.ToInt32(reader["Tijdsduur(min)"]),
                             Leeftijdsgrens = Convert.ToInt32(reader["Leeftijdsgrens"]),
                             Beschrijving = reader["Beschrijving"].ToString(),
                             Img = reader["foto"].ToString()
