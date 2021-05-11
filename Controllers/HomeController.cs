@@ -139,11 +139,20 @@ namespace Bioscoop_Website_2021.Controllers
             return View();
         }
 
-        [Route("Contact")]
-        public IActionResult Contact()
+        [Route("Contactoverzicht")]
+        public IActionResult Contactoverzicht()
         {
             return View();
-        }       
+        }
+
+        [Route("Contact")]
+        public IActionResult Contact(string voornaam, string achternaam)
+        {
+            ViewData["voornaam"] = voornaam;
+            ViewData["achternaam"] = achternaam; 
+
+            return View();
+        }
 
         [Route("film/{id}")]
         public IActionResult Film(string id)
