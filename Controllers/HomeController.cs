@@ -146,10 +146,12 @@ namespace Bioscoop_Website_2021.Controllers
         }
 
         [Route("Contact")]
-        public IActionResult Contact(string voornaam, string achternaam)
+        public IActionResult Contact(string voornaam, string achternaam, string email)
         {
             ViewData["voornaam"] = voornaam;
-            ViewData["achternaam"] = achternaam; 
+            ViewData["achternaam"] = achternaam;
+            ViewData["email"] = email; 
+
 
             return View();
         }
