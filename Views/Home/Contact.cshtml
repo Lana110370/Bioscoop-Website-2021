@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Bioscoop_Website_2021.Database
+@model Person
+
+@{
     ViewData["Title"] = "Contact";
 }
   
@@ -11,3 +14,6 @@
     <input type ="submit" value="opslaan" />
 </form>
 
+@if (Model != null){
+    <p>Hallo en welkom @Model.Voornaam @Model.Achternaam </p>
+}

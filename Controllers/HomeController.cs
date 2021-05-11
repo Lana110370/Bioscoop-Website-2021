@@ -152,14 +152,10 @@ namespace Bioscoop_Website_2021.Controllers
         }
 
         [HttpPost]
-        public IActionResult Contact(string voornaam, string achternaam, string email)
+        [Route("Contact")]
+        public IActionResult Contact(Person person)
         {
-            ViewData["voornaam"] = voornaam;
-            ViewData["achternaam"] = achternaam;
-            ViewData["email"] = email; 
-
-
-            return View();
+            return View(person);
         }
 
         [Route("film/{id}")]
