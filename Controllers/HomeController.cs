@@ -155,6 +155,9 @@ namespace Bioscoop_Website_2021.Controllers
         [Route("Contact")]
         public IActionResult Contact(Person person)
         {
+            if (ModelState.IsValid)
+                return Redirect("/success"); 
+
             return View(person);
         }
 
