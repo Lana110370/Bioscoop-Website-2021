@@ -11,50 +11,67 @@
     <p>Bekijk nu onze nieuwe releases!</p>
 </div>
 
-
-<div class="container">
-    <div id="homefilms">
-        @foreach (Film p in Model.Take(10))
-        {
-            <a href="/film/@p.id"> @p.Titel</a>
-            <img src="@p.Img" alt="@p.Titel" />
-        }
+ 
+@foreach (Film p in Model.Take(5))
+ 
+  {
+<div id="homefilms">
+    <div id="titel">
+        <h2><a href="/film/@p.id"> @p.Titel</a></h2>
     </div>
+    <div id="image"><img src="@p.Img" alt="@p.Titel" /> </div>
 </div>
+  }
+
+
 
 <style>
 
-    #hometext {
+    #hometext{
         text-align: center;
     }
 
-   #hometext h1 {
+   #hometext h1{
        color: #000000;
        text-align: center;
        font-size: 60px;
      }
 
-   #hometext p {
+   #hometext p{
        color: #000000;
        text-align: center;
        font-size: 30px;
      }
 
-    .container {
-        width: 100px;
+    #homefilms {
+        margin: auto;
+        width:30%;
+        border: 5px solid #000000;
+        padding: 10px;
+        background: #808080; 
+        margin-bottom: 10px; 
     }
 
-    #homefilms a {
+    #homefilms a{
         color: #000000;
         text-decoration: none;
     }
 
-    #homefilms ul {
-        text-align: center;
-    }
-
-    #homefilms img {
+    #homefilms img{
         width: 150px;
         height: 200px;
+        
     }
+
+    #titel{
+        text-align: center; 
+    }
+
+    #image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto; 
+        width: 40%; 
+    }
+
 </style>
