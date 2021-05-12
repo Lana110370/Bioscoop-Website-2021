@@ -7,11 +7,14 @@
   
 <h1>@ViewData["Title"]</h1>
 
-<form method ="post">
-    Voornaam: <input type ="text" name= "Voornaam" />
-    Achternaam: <input type ="text" name= "Achternaam" />
-    Email: <input type ="text" name= "Email"/>
-    <input type ="submit" value="opslaan" />
+<form method="post">
+    Voornaam: <input type="text" name="Voornaam" />
+    @Html.ValidationMessageFor(m => m.Voornaam)
+    Achternaam: <input type="text" name="Achternaam" />
+    @Html.ValidationMessageFor(m => m.Achternaam)
+    Email: <input type="text" name="Email" />
+    @Html.ValidationMessageFor(m => m.Email)
+    <input type="submit" value="opslaan" />
 </form>
 
 @if (Model != null){
