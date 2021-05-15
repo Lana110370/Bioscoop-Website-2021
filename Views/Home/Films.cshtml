@@ -1,6 +1,17 @@
-﻿
+﻿@using Bioscoop_Website_2021.Database;
+@model List<Film>
+
 <h1>Films</h1>
 
-  
-    
+@foreach (Film p in Model.Take(10))
+
+{
+    <div id="homefilms">
+        <div id="titel">
+            <h2><a href="/film/@p.id"> @p.Titel</a></h2>
+        </div>
+        <div id="image"><img src="@p.Img" alt="@p.Titel" /> </div>
+    </div>
+}
+
 

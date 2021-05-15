@@ -124,7 +124,11 @@ namespace Bioscoop_Website_2021.Controllers
         [Route("Films")]
         public IActionResult Films()
         {
-            return View();
+            // alle namen ophalen
+            var film = GetProducts();
+
+            // stop de namen in de html
+            return View(film);
         }
 
         [Route("Evenementen")]
