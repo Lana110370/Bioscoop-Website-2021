@@ -1,22 +1,30 @@
 ﻿@using Bioscoop_Website_2021.Database;
 @model List<Film>
 
-<h1>Films</h1>
+<div id="Tekst1">
+    <h1>Films</h1>
+    <p>Welke op onze overzichtspagina! Op deze film kunt u het overzicht van ons gehele aanbod aan films zien. Neem snel een kijkje!</p>
+</div>
 
 @foreach (Film p in Model)
 
 {
 <div id="allefilms">
+    <h2>@p.Titel</h2>
     <div id="image"><img src="@p.Img" alt="@p.Titel" /></div>
-    <p>@p.Beschrijving</p>
+    <div id="Beschrijving"><p>@p.Beschrijving</p></div>
     <br><br>
     <p><a href="/film/@p.id"> Lees meer... </a></p>
 </div>
 }
 
 <style>
+    #Tekst1{
+        text-align: center;
+    }
+
     #allefilms {
-        width: 30%;
+        width: 50%;
         border: 5px solid #000000;
         padding: 10px;
         margin-bottom: 10px;
@@ -31,5 +39,9 @@
         width: 150px;
         height: 200px;
     }
+
+    #Beschrijving{
+        font-size: 15px; 
+    } 
 </style>
 
