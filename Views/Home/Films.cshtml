@@ -3,15 +3,33 @@
 
 <h1>Films</h1>
 
-@foreach (Film p in Model.Take(10))
+@foreach (Film p in Model)
 
 {
-    <div id="homefilms">
-        <div id="titel">
-            <h2><a href="/film/@p.id"> @p.Titel</a></h2>
-        </div>
-        <div id="image"><img src="@p.Img" alt="@p.Titel" /> </div>
-    </div>
+<div id="allefilms">
+    <div id="image"><img src="@p.Img" alt="@p.Titel" /></div>
+    <p>@p.Beschrijving</p>
+    <br><br>
+    <p><a href="/film/@p.id"> Lees meer... </a></p>
+</div>
 }
 
+<style>
+    #allefilms {
+        width: 30%;
+        border: 5px solid #000000;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    #allefilms a {
+        color: #000000;
+        text-decoration: none;
+     }
+
+    #allefilms img {
+        width: 150px;
+        height: 200px;
+    }
+</style>
 
