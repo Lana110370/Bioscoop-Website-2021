@@ -143,6 +143,12 @@ namespace Bioscoop_Website_2021.Controllers
             return View();
         }
 
+        [Route("Bestelpagina")]
+        public IActionResult Bestelpagina()
+        {
+            return View();
+        }
+
         [Route("Contactoverzicht")]
         public IActionResult Contactoverzicht()
         {

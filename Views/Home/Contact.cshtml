@@ -6,15 +6,16 @@
 }
   
 <h1>@ViewData["Title"]</h1>
+<p>Op deze pagina kunt u via het onderstaande formulier contact met ons opnemen. Wij doen ons best uw bericht zo spoedig mogelijk te verwerken</p>
 
 <div id="'Formulier">
     <form method="post">
-        Voornaam:<input type="text" name="Voornaam"/>
-        @Html.ValidationMessageFor(m => m.Voornaam)
-        Achternaam:<input type="text" name="Achternaam" />
-        @Html.ValidationMessageFor(m => m.Achternaam)
-        Email:<input type="text" name="Email" />
-        @Html.ValidationMessageFor(m => m.Email)
+        <div id="Voornaam"> Voornaam:<input type="text" name="Voornaam" />
+        @Html.ValidationMessageFor(m => m.Voornaam)</div>
+        <div id=" Achternaam">Achternaam:<input type="text" name="Achternaam" />
+        @Html.ValidationMessageFor(m => m.Achternaam)</div>
+        <div id="Email"> Email:<input type="text" name="Email" />
+        @Html.ValidationMessageFor(m => m.Email)</div>
         <input type="submit" value="Versturen" />
     </form>
 </div>
