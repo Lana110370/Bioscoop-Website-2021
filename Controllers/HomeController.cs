@@ -24,7 +24,7 @@ namespace Bioscoop_Website_2021.Controllers
             _logger = logger;
         }
 
-        [Route("Home")]
+        [Route("Index")]
         public IActionResult Index()
         {
             // alle namen ophalen
