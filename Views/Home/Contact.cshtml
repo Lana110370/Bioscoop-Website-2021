@@ -11,12 +11,12 @@
 <div id="'Formulier">
     <form method="post">
         <div id="Voornaam"> Voornaam:<input type="text" name="Voornaam" />
-        @Html.ValidationMessageFor(m => m.Voornaam)</div>
+        @Html.ValidationMessageFor(m => m.Voornaam)</div> <br />
         <div id=" Achternaam">Achternaam:<input type="text" name="Achternaam" />
-        @Html.ValidationMessageFor(m => m.Achternaam)</div>
-        <div id="Email"> Email:<input type="text" name="Email" />
-        @Html.ValidationMessageFor(m => m.Email)</div>
-        <input type="submit" value="Versturen" />
+        @Html.ValidationMessageFor(m => m.Achternaam)</div> <br />
+        <div id="Email"> Email:<input type="text" name="Email" /> 
+        @Html.ValidationMessageFor(m => m.Email)</div> <br />
+        <input type="submit" value="Versturen" /> 
     </form>
 </div>
 
@@ -25,5 +25,5 @@
 }
 
 <style>
-    
+
 </style>
