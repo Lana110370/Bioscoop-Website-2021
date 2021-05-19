@@ -110,10 +110,6 @@ namespace Bioscoop_Website_2021.Controllers
             return products;
         }
 
-        public IActionResult ShowAll()
-        {
-            return View();
-        }
 
         [Route("Privacy")]
         public IActionResult Privacy()
@@ -177,6 +173,10 @@ namespace Bioscoop_Website_2021.Controllers
             var model = GetFilm(id);
 
             return View(model);
+
+            var Dates = GetDates();
+
+            return View(Dates); 
         }
 
         private Film GetFilm(string id)
@@ -210,10 +210,52 @@ namespace Bioscoop_Website_2021.Controllers
             return films[0];
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public List<Datum> GetDates()
+        {
+
+            // maak een lege lijst waar we de namen in gaan opslaan
+            List<Datum> Dates = new List<Datum>();
+
+            // verbinding maken met de database
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                // verbinding openen
+                conn.Open();
+
+                // SQL query die we willen uitvoeren
+                MySqlCommand cmd = new MySqlCommand("select * from voorstelling-datum", conn);
+
+                // resultaat van de query lezen
+                using (var reader = cmd.ExecuteReader())
+                {
+                    // elke keer een regel (of eigenlijk: database rij) lezen
+                    while (reader.Read())
+                    {
+                        Datum q = new Datum
+
+                        {
+                            id = Convert.ToInt32(reader["Id"]),
+                            datumtijd = Convert.ToInt32(reader["Id"]),
+                            film_id = Convert.ToInt32(reader["Id"]),
+
+                        };
+
+                        Dates.Add(q);
+                    }
+                }
+                
+            }
+
+            // return de lijst met namen
+            return Dates;
+        }
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
-}
+
+    
