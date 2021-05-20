@@ -142,7 +142,8 @@ namespace Bioscoop_Website_2021.Controllers
         [Route("Bestelpagina")]
         public IActionResult Bestelpagina()
         {
-            return View();
+            var Dates = GetDates();
+            return View(Dates);
         }
 
         [Route("Contactoverzicht")]
@@ -162,7 +163,7 @@ namespace Bioscoop_Website_2021.Controllers
         public IActionResult Contact(Person person)
         {
             if (ModelState.IsValid)
-                return Redirect("/success"); 
+                return Redirect("/success");
 
             return View(person);
         }
@@ -174,9 +175,6 @@ namespace Bioscoop_Website_2021.Controllers
 
             return View(model);
 
-            var Dates = GetDates();
-
-            return View(Dates); 
         }
 
         private Film GetFilm(string id)
@@ -202,7 +200,7 @@ namespace Bioscoop_Website_2021.Controllers
                             Leeftijdsgrens = Convert.ToInt32(reader["Leeftijdsgrens"]),
                             Beschrijving = reader["Beschrijving"].ToString(),
                             Img = reader["foto"].ToString()
-                        }; 
+                        };
                         films.Add(p);
                     }
                 }
@@ -243,19 +241,15 @@ namespace Bioscoop_Website_2021.Controllers
                         Dates.Add(q);
                     }
                 }
-                
             }
 
             // return de lijst met namen
             return Dates;
         }
     }
+    
+}
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-    }
+    
 
     

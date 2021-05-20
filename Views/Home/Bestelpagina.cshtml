@@ -1,1 +1,11 @@
-﻿<h1>Bestelpagina</h1>
+﻿@using Bioscoop_Website_2021.Database;
+@model List<Datum>
+
+<h1>Bestelpagina</h1>
+
+@foreach (Datum q in Model)
+
+{
+    <p>@q.datumtijd</p>
+}
+
