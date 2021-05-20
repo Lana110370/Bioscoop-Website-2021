@@ -17,6 +17,8 @@ namespace Bioscoop_Website_2021.Database
 
         public string Img { get; set; }
 
+        public string Trailer { get; set; }
+
         public int Genre { get; set; }
 
         public int Tijdsduur { get; set; }

@@ -97,7 +97,8 @@ namespace Bioscoop_Website_2021.Controllers
                             Tijdsduur = Convert.ToInt32(reader["Tijdsduur(min)"]),
                             Leeftijdsgrens = Convert.ToInt32(reader["Leeftijdsgrens"]),
                             Beschrijving = reader["Beschrijving"].ToString(),
-                            Img = reader["foto"].ToString()
+                            Img = reader["foto"].ToString(),
+                            Trailer = reader["Trailer"].ToString()
                         };
 
                         // voeg de naam toe aan de lijst met namen

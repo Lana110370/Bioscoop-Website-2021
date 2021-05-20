@@ -19,7 +19,9 @@
     <div id="titel">
         <h2><a href="/film/@p.id"> @p.Titel</a></h2>
     </div>
-    <div id="image"><img src="@p.Img" alt="@p.Titel" /> </div>
+    <div id="image"><img src="@p.Img" alt="@p.Titel" /></div>
+    <br><br>
+    <p><a href="/film/@p.id"> Lees meer... </a></p>
 </div>
   }
 
@@ -47,8 +49,14 @@
         margin: auto;
         width:30%;
         border: 5px solid #000000;
+        border-radius: 5px; 
         padding: 10px;
         margin-bottom: 10px; 
+    }
+
+    #homefilms p{
+        text-align: center; 
+        font-size: 20px; 
     }
 
     #homefilms a{
