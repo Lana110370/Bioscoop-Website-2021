@@ -1,28 +1,30 @@
 ﻿@using Bioscoop_Website_2021.Database;
 @model List<Film>
 
-<div id="Tekst1">
-    <h1>Films</h1>
-    <p>Welke op onze overzichtspagina! Op deze film kunt u het overzicht van ons gehele aanbod aan films zien. Neem snel een kijkje!</p>
-</div>
+<section>
+    <div id="Tekst1">
+        <h1>Films</h1>
+        <p>Welke op onze overzichtspagina! Op deze film kunt u het overzicht van ons gehele aanbod aan films zien. Neem snel een kijkje!</p>
+    </div>
 
-@foreach (Film p in Model)
+    @foreach (Film p in Model)
 
-{
-<div id="allefilms">
-    <div id="Titel"><h2>@p.Titel</h2></div>
-    <div id="image"><img src="@p.Img" alt="@p.Titel" /></div>
-    <br><br>
-    <div id="Beschrijving">@p.Beschrijving</div>
-    <p><a href="/film/@p.id"> Lees meer... </a></p>
-</div>
-}
+    {
+        <div id="allefilms">
+            <div id="Titel"><h2>@p.Titel</h2></div>
+            <div id="image"><img src="@p.Img" alt="@p.Titel" /></div>
+            <br><br>
+            <div id="Beschrijving">@p.Beschrijving</div>
+            <p><a href="/film/@p.id"> Lees meer... </a></p>
+        </div>
+    }
+</section>
 
 <style>
 
     #Tekst1{
         text-align: center;
-        font-size: 25px; 
+        font-size: 25px;
     }
 
     #allefilms {
@@ -32,12 +34,13 @@
         border-radius: 5px;
         padding: 10px;
         margin-bottom: 10px;
+        background-color: #ff8686;
     }
 
     #allefilms p{
-        text-align: center; 
-        font-size: 20px; 
-        font-weight: bold; 
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
     }
 
     #allefilms a {
@@ -51,7 +54,7 @@
     }
 
     #Titel{
-        text-align: center; 
+        text-align: center;
     }
 
     #image {
@@ -64,5 +67,12 @@
     #Beschrijving{
         font-size: 20px;
     }
+
+    section {
+        background-image: linear-gradient(#ffffff, #ff313f, #df2c35, #961111);
+        margin-bottom: 0; 
+    }
+
+
 </style>
 
