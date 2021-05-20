@@ -157,6 +157,12 @@ namespace Bioscoop_Website_2021.Controllers
             return View();
         }
 
+        [Route("FAQ")]
+        public IActionResult FAQ()
+        {
+            return View();
+        }
+
         [HttpPost]
         [Route("Contact")]
         public IActionResult Contact(Person person)
