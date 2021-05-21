@@ -228,7 +228,7 @@ namespace Bioscoop_Website_2021.Controllers
                 conn.Open();
 
                 // SQL query die we willen uitvoeren
-                MySqlCommand cmd = new MySqlCommand("select * from voorstelling-datum", conn);
+                MySqlCommand cmd = new MySqlCommand("select * from `voorstelling-datum`", conn);
 
                 // resultaat van de query lezen
                 using (var reader = cmd.ExecuteReader())
@@ -240,8 +240,8 @@ namespace Bioscoop_Website_2021.Controllers
 
                         {
                             id = Convert.ToInt32(reader["Id"]),
-                            datumtijd = Convert.ToInt32(reader["Id"]),
-                            film_id = Convert.ToInt32(reader["Id"]),
+                            datumtijd = DateTime.Parse(reader["datumtijd"].ToString()),
+                            film_id = Convert.ToInt32(reader["film_id"]),
 
                         };
 

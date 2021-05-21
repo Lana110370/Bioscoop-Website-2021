@@ -7,8 +7,8 @@
 </div>
 
 <div id="knopjes">
-    <button class='knop_1'>FAQ</button>
-    <button class='knop_2'>Contactformulier</button>
+    <a href="/FAQ">FAQ</a>
+    <a href ="/Contact">Contactformulier</a>
 </div>
 
 <style>
@@ -23,16 +23,25 @@
   width: 70%
   }
 
-  #knopjes button{
-      width: 250px;
-      height: 100px; 
-      background: #000000;
-      border: none;
-      color: #ffffff; 
-      font-weight: bold;
-      font-size: 15px;
-      margin-top: 20px;
-      margin-bottom: 20px; 
-  }
+    #knopjes {
+        display: flex;
+        justify-content: center;
+        margin-left: 10px; 
+      
+    }
+
+    #knopjes a:link, a:visited {
+        background-color: indianred;
+        color: white;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    #knopjes a:hover, a:active {
+        background-color: #808080;
+    }
+    
 
 </style>

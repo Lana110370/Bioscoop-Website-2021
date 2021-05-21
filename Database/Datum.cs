@@ -9,7 +9,7 @@ namespace Bioscoop_Website_2021.Database
     {
         public int id { get; set; }
 
-        public int datumtijd { get; set; }
+        public DateTime datumtijd { get; set; }
 
         public int film_id { get; set; }
 
