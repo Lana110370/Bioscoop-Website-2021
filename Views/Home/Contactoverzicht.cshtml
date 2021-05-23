@@ -7,8 +7,8 @@
 </div>
 
 <div id="knopjes">
-    <a href="/FAQ">FAQ</a>
-    <a href ="/Contact">Contactformulier</a>
+    <div id="knop1"><a href="/FAQ">FAQ</a></div>
+    <div id="knop2"><a href="/Contact">Contactformulier</a></div>
 </div>
 
 <style>
@@ -26,8 +26,16 @@
     #knopjes {
         display: flex;
         justify-content: center;
+        padding: 10px; 
+       
+    }
+
+    #knop1{
+        margin-right: 10px;
+    }
+
+    #knop2{
         margin-left: 10px; 
-      
     }
 
     #knopjes a:link, a:visited {
@@ -43,5 +51,6 @@
         background-color: #808080;
     }
     
+
 
 </style>

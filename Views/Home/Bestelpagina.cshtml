@@ -1,12 +1,39 @@
 ﻿@using Bioscoop_Website_2021.Database;
 @model List<Datum>
 
-<h1>Bestelpagina</h1>
+<div id="tekst1">
+    <h1>Bestelpagina</h1>
+    <p>Dit is onze bestelpagina. Hieronder ziet u een overzicht van al onze voorstellingen voor de komende tijd. U kunt betalen door de voorstelling die u wil te selecteren en de Banono-QR code te scannen!</p>
+</div>
 
-@foreach (Datum q in Model)
+<div id="overzicht">
+    @foreach (Datum q in Model)
 
-{
-    <p>@q.film_id</p>
-    <p>@q.datumtijd</p>
-}
+    {
+        <div id="voorstellingen">
+            <p> @q.datumtijd</p>
+        </div>
+    }
+</div>
 
+<style>
+    #tekst1 {
+        text-align: center;
+    }
+
+     #tekst1 p {
+        font-size: 20px;
+    }
+
+    #overzicht {
+        border: 5px solid #000000;
+        border-radius: 5px;
+        width: 40%; 
+        margin: auto; 
+    }
+
+    #voorstellingen{
+        text-align: center;
+    }
+
+</style>
