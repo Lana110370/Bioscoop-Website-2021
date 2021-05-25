@@ -4,17 +4,19 @@
 @{
     ViewData["Title"] = "Contact";
 }
-  
-<h1>@ViewData["Title"]</h1>
-<p>Op deze pagina kunt u via het onderstaande formulier contact met ons opnemen. Wij doen ons best uw bericht zo spoedig mogelijk te verwerken</p>
+ 
+<div id="titeltekst">
+    <h1>@ViewData["Title"]</h1>
+    <p>Op deze pagina kunt u via het onderstaande formulier contact met ons opnemen. Wij doen ons best uw bericht zo spoedig mogelijk te verwerken</p>
+</div>
 
-<div id="'Formulier">
+<div id="Formulier">
     <form method="post">
-        <div id="Voornaam"> Voornaam:<input type="text" name="Voornaam" />
+        <div id="Voornaam"> <p>Voornaam:</p><input type="text" name="Voornaam" />
         @Html.ValidationMessageFor(m => m.Voornaam)</div> <br />
-        <div id=" Achternaam">Achternaam:<input type="text" name="Achternaam" />
+        <div id="Achternaam"><p>Achternaam:</p><input type="text" name="Achternaam" />
         @Html.ValidationMessageFor(m => m.Achternaam)</div> <br />
-        <div id="Email"> Email:<input type="text" name="Email" /> 
+        <div id="Email"> <p>Email:</p><input type="text" name="Email" /> 
         @Html.ValidationMessageFor(m => m.Email)</div> <br />
         <input type="submit" value="Versturen" /> 
     </form>
@@ -25,5 +27,29 @@
 }
 
 <style>
+   #titeltekst{
+       text-align: center;
+       font-size: 20px; 
+   }
 
+    #Formulier{
+        text-align: center;
+        align-content: center;
+    }
+
+    #Voornaam input{
+        width: 200px; 
+        height: 30px;
+       
+    }
+
+    #Achternaam input {
+        width: 200px;
+        height: 30px;
+    }
+
+    #Email input {
+        width: 200px;
+        height: 30px;
+    }
 </style>
