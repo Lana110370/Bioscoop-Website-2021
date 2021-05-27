@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "Contact";
 }
- 
+
 <div id="titeltekst">
     <h1>@ViewData["Title"]</h1>
     <p>Op deze pagina kunt u via het onderstaande formulier contact met ons opnemen. Wij doen ons best uw bericht zo spoedig mogelijk te verwerken</p>
@@ -12,35 +12,42 @@
 
 <div id="Formulier">
     <form method="post">
-        <div id="Voornaam"> <p>Voornaam:</p><input type="text" name="Voornaam" />
-        @Html.ValidationMessageFor(m => m.Voornaam)</div> <br />
-        <div id="Achternaam"><p>Achternaam:</p><input type="text" name="Achternaam" />
-        @Html.ValidationMessageFor(m => m.Achternaam)</div> <br />
-        <div id="Email"> <p>Email:</p><input type="text" name="Email" /> 
-        @Html.ValidationMessageFor(m => m.Email)</div> <br />
-        <input type="submit" value="Versturen" /> 
+        <div id="Voornaam">
+            <p>Voornaam:</p><input type="text" name="Voornaam" />
+            @Html.ValidationMessageFor(m => m.Voornaam)
+        </div> <br />
+        <div id="Achternaam">
+            <p>Achternaam:</p><input type="text" name="Achternaam" />
+            @Html.ValidationMessageFor(m => m.Achternaam)
+        </div> <br />
+        <div id="Email">
+            <p>Email:</p><input type="text" name="Email" />
+            @Html.ValidationMessageFor(m => m.Email)
+        </div> <br />
+        <input type="submit" value="Versturen" />
     </form>
 </div>
 
-@if (Model != null){
+@if (Model != null)
+{
+    <a href="/success"></a>
     <p>Hallo en welkom @Model.Voornaam @Model.Achternaam </p>
 }
 
 <style>
-   #titeltekst{
-       text-align: center;
-       font-size: 20px; 
-   }
+    #titeltekst {
+        text-align: center;
+        font-size: 20px;
+    }
 
-    #Formulier{
+    #Formulier {
         text-align: center;
         align-content: center;
     }
 
-    #Voornaam input{
-        width: 200px; 
+    #Voornaam input {
+        width: 200px;
         height: 30px;
-       
     }
 
     #Achternaam input {
