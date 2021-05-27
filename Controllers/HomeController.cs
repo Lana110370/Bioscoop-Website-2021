@@ -165,6 +165,12 @@ namespace Bioscoop_Website_2021.Controllers
             return View();
         }
 
+        [Route("Succespagina")]
+        public IActionResult Succespagina()
+        {
+            return View();
+        }
+
         [HttpPost]
         [Route("Contact")]
         public IActionResult Contact(Person person)
