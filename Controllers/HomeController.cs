@@ -171,9 +171,14 @@ namespace Bioscoop_Website_2021.Controllers
         public IActionResult Contact(Person person)
         {
             // hebben we alles goed ingevuld? Dan sturen we de gebruiker door naar de succes pagina
-            if (ModelState.IsValid)
-                return Redirect("/Success");
+            if (ModelState.IsValid) {
 
+                SavePerson(person);
+
+                return Redirect("/Success");
+            }
+                
+           
             // niet goed? Dan sturen we de gegevens door naar de view zodat we de fouten kunnen tonen
             return View(person);
         }
