@@ -128,8 +128,8 @@ namespace Bioscoop_Website_2021.Controllers
             return View(film);
         }
 
-        [Route("Evenementen")]
-        public IActionResult Evenementen()
+        [Route("Inloggen")]
+        public IActionResult Inloggen()
         {
             return View();
         }
