@@ -24,6 +24,10 @@
             <p>Email:</p><input type="text" name="Email" />
             @Html.ValidationMessageFor(m => m.Email)
         </div> <br />
+        <div id="Email">
+            <p>Bericht:</p><input type="text" name="Bericht" />
+            @Html.ValidationMessageFor(m => m.Bericht)
+        </div> <br />
         <input type="submit" value="Versturen" />
     </form>
 </div>
@@ -57,6 +61,12 @@
 
     #Email input {
         width: 200px;
+        height: 100px;
+    }
+
+    #Bericht input {
+        width: 300px;
         height: 30px;
     }
+
 </style>
