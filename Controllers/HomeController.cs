@@ -165,21 +165,40 @@ namespace Bioscoop_Website_2021.Controllers
             return View();
         }
 
+        
+        [HttpPost]
+        [Route("Contact")]
+        public IActionResult Contact(Person person)
+        {
+            // hebben we alles goed ingevuld? Dan sturen we de gebruiker door naar de succes pagina
+            if (ModelState.IsValid)
+                return Redirect("/Success");
+
+            // niet goed? Dan sturen we de gegevens door naar de view zodat we de fouten kunnen tonen
+            return View(person);
+        }
+
         [Route("Success")]
         public IActionResult Success()
         {
             return View();
         }
 
-        [HttpPost]
-        [Route("Contact")]
-        public IActionResult Contact(Person person)
+        private void SavePerson(Person person)
         {
-            if (ModelState.IsValid)
-                return Redirect("/success");
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, email, bericht) VALUES(?voornaam, ?achternaam, ?email, ?bericht)", conn);
 
-            return View(person);
+                cmd.Parameters.Add("?voornaam", MySqlDbType.Text).Value = person.Voornaam;
+                cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.Achternaam;
+                cmd.Parameters.Add("?email", MySqlDbType.Text).Value = person.Email;
+                cmd.Parameters.Add("?bericht", MySqlDbType.Text).Value = person.Bericht;
+                cmd.ExecuteNonQuery();
+            }
         }
+
 
         [Route("film/{id}")]
         public IActionResult Film(string id)
