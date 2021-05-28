@@ -194,11 +194,12 @@ namespace Bioscoop_Website_2021.Controllers
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, email, bericht) VALUES(?voornaam, ?achternaam, ?email, ?bericht)", conn);
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, email,Telefoonnummer, bericht) VALUES(?voornaam, ?achternaam, ?email, ?Telefoonnummer, ?bericht)", conn);
 
                 cmd.Parameters.Add("?voornaam", MySqlDbType.Text).Value = person.Voornaam;
                 cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.Achternaam;
                 cmd.Parameters.Add("?email", MySqlDbType.Text).Value = person.Email;
+                cmd.Parameters.Add("?Telefoonnummer", MySqlDbType.Int32).Value = person.Telefoonnummer;
                 cmd.Parameters.Add("?bericht", MySqlDbType.Text).Value = person.Bericht;
                 cmd.ExecuteNonQuery();
             }

@@ -11,6 +11,8 @@ namespace Bioscoop_Website_2021.Models
         [Required(ErrorMessage = "U bent verplicht uw emailadres in te vullen")]
         public string Email { get; set; }
 
+        public int Telefoonnummer { get; set; }
+
         [Required(ErrorMessage = "Gelieve een bericht in te vullen")]
         public string Bericht { get; set; }
         
