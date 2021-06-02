@@ -1,5 +1,8 @@
 ﻿@using Bioscoop_Website_2021.Database
 @model Film
+@{ 
+    var datums = ViewData["date"] as List<Datum>;
+}
 
 <div id="container">
 
@@ -8,6 +11,8 @@
     <p>Vanaf @Model.Leeftijdsgrens jaar. @Model.Tijdsduur minuten. @Model.Genre</p>
     <br><br>
     <p>@Model.Beschrijving</p>
+
+   
 
 </div>
 
@@ -18,6 +23,14 @@
 
     <div id="DATUMTIJD">
         <p>Bekijk snel één van onze voorstellingen! Ze zijn te zien op:</p>
+
+        @if (datums != null)
+        {
+            foreach (var d in datums)
+            {
+                <p>@d.datumtijd.ToString("D")</p>
+            }
+        }
     </div>
 </div>
 

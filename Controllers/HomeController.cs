@@ -15,8 +15,8 @@ namespace Bioscoop_Website_2021.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         // stel in waar de database gevonden kan worden
-        private readonly string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
-        //private readonly string connectionString = "Server=172.16.160.21;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
+       // private readonly string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
+        private readonly string connectionString = "Server=172.16.160.21;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
         // link voor in de les op school
 
         public HomeController(ILogger<HomeController> logger)
@@ -24,7 +24,7 @@ namespace Bioscoop_Website_2021.Controllers
             _logger = logger;
         }
 
-        [Route("Index")]
+
         public IActionResult Index()
         {
             // alle namen ophalen
@@ -122,7 +122,7 @@ namespace Bioscoop_Website_2021.Controllers
         public IActionResult Films()
         {
             // alle namen ophalen
-            var film = GetProducts();
+            var film = GetProducts();            
 
             // stop de namen in de html
             return View(film);
@@ -142,9 +142,12 @@ namespace Bioscoop_Website_2021.Controllers
 
         [Route("Bestelpagina")]
         public IActionResult Bestelpagina()
+
         {
             var Dates = GetDates();
             return View(Dates);
+
+
         }
 
         [Route("Contactoverzicht")]
@@ -210,6 +213,8 @@ namespace Bioscoop_Website_2021.Controllers
         public IActionResult Film(string id)
         {
             var model = GetFilm(id);
+            var Dates = GetDates();
+            ViewData["date"] = Dates.Where(b => b.film_id == model.id).ToList();
 
             return View(model);
 
