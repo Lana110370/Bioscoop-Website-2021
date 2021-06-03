@@ -32,7 +32,7 @@
             <p>Bericht:</p><input type="text" name="Bericht" />
             @Html.ValidationMessageFor(m => m.Bericht)
         </div> <br />
-        <input type="submit" value="Versturen" />
+        <div id=" Versturen"><input type="submit" value="Versturen" /></div>
     </form>
 </div>
 
@@ -78,4 +78,10 @@
         height: 200px;
     }
 
+    #Versturen input {
+        width: 400px;
+        height: 200px;
+        background-color: indianred;
+    }
+    
 </style>
