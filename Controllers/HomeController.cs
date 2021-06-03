@@ -1,5 +1,6 @@
 ﻿using Bioscoop_Website_2021.Models;
-using Microsoft.AspNetCore.Mvc;using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using Microsoft.AspNetCore.Http;
 using Bioscoop_Website_2021.Database;
 
 namespace Bioscoop_Website_2021.Controllers
@@ -15,8 +17,8 @@ namespace Bioscoop_Website_2021.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         // stel in waar de database gevonden kan worden
-       // private readonly string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
-        private readonly string connectionString = "Server=172.16.160.21;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
+       private readonly string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
+        //private readonly string connectionString = "Server=172.16.160.21;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
         // link voor in de les op school
 
         public HomeController(ILogger<HomeController> logger)
@@ -27,6 +29,8 @@ namespace Bioscoop_Website_2021.Controllers
 
         public IActionResult Index()
         {
+            ViewData["user"] = HttpContext.Session.GetString("User");
+
             // alle namen ophalen
             var film = GetProducts();
 
@@ -126,12 +130,6 @@ namespace Bioscoop_Website_2021.Controllers
 
             // stop de namen in de html
             return View(film);
-        }
-
-        [Route("Inloggen")]
-        public IActionResult Inloggen()
-        {
-            return View();
         }
 
         [Route("Detailpagina")]
@@ -289,6 +287,28 @@ namespace Bioscoop_Website_2021.Controllers
             // return de lijst met namen
             return Dates;
         }
+
+        [Route("Inloggen")]
+        public IActionResult Inloggen(string username, string password)
+        {
+            if (password == "geheim")
+            {
+                HttpContext.Session.SetString("User", username);
+                return Redirect("/");
+            }
+
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
+
+
     }
     
 }

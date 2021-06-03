@@ -5,80 +5,77 @@
 
 }
 
-
 <div id="hometext">
-    <h1>Welkom bij de LaMa-Bios!!</h1>
+    <h1>Welkom bij de LaMa-Bios @ViewData["user"]!!</h1>
     <p>Bekijk nu onze nieuwe releases!</p>
 </div>
 
- 
+
 @foreach (Film p in Model.Take(5))
- 
-  {
-<div id="homefilms">
-    <div id="titel">
-        <h2><a href="/film/@p.id"> @p.Titel</a></h2>
+
+{
+    <div id="homefilms">
+        <div id="titel">
+            <h2><a href="/film/@p.id"> @p.Titel</a></h2>
+        </div>
+        <div id="image"><img src="@p.Img" alt="@p.Titel" /></div>
+        <br><br>
+        <p><a href="/film/@p.id"> Lees meer... </a></p>
     </div>
-    <div id="image"><img src="@p.Img" alt="@p.Titel" /></div>
-    <br><br>
-    <p><a href="/film/@p.id"> Lees meer... </a></p>
-</div>
-  }
+}
 
 
 
 <style>
 
-    #hometext{
+    #hometext {
         text-align: center;
     }
 
-   #hometext h1{
-       color: #000000;
-       text-align: center;
-       font-size: 60px;
-     }
+        #hometext h1 {
+            color: #000000;
+            text-align: center;
+            font-size: 60px;
+        }
 
-   #hometext p{
-       color: #000000;
-       text-align: center;
-       font-size: 30px;
-     }
+        #hometext p {
+            color: #000000;
+            text-align: center;
+            font-size: 30px;
+        }
 
     #homefilms {
         margin: auto;
-        width:30%;
+        width: 30%;
         border: 5px solid #000000;
-        border-radius: 5px; 
+        border-radius: 5px;
         padding: 10px;
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
     }
 
-    #homefilms p{
-        text-align: center; 
-        font-size: 20px; 
-    }
+        #homefilms p {
+            text-align: center;
+            font-size: 20px;
+        }
 
-    #homefilms a{
-        color: #000000;
-        text-decoration: none;
-    }
+        #homefilms a {
+            color: #000000;
+            text-decoration: none;
+        }
 
-    #homefilms img{
-        width: 150px;
-        height: 200px;
-        
-    }
+        #homefilms img {
+            width: 150px;
+            height: 200px;
+        }
 
-    #titel{
-        text-align: center; 
+    #titel {
+        text-align: center;
     }
 
     #image {
         display: block;
         margin-left: auto;
-        margin-right: auto; 
-        width: 40%; 
+        margin-right: auto;
+        width: 40%;
     }
-
 </style>
