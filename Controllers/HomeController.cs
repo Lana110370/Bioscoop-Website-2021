@@ -19,8 +19,8 @@ namespace Bioscoop_Website_2021.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         // stel in waar de database gevonden kan worden
-        //private readonly string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
-        private readonly string connectionString = "Server=172.16.160.21;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
+        private readonly string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
+        //private readonly string connectionString = "Server=172.16.160.21;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
         // link voor in de les op school
 
         public HomeController(ILogger<HomeController> logger)
@@ -194,13 +194,15 @@ namespace Bioscoop_Website_2021.Controllers
 
         private void SavePerson(Person person)
         {
+          person.Wachtwoord = ComputeSha256Hash(person.Wachtwoord);
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, email,Telefoonnummer, bericht) VALUES(?voornaam, ?achternaam, ?email, ?Telefoonnummer, ?bericht)", conn);
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, wachtwoord, email,Telefoonnummer, bericht) VALUES(?voornaam, ?achternaam, ?wachtwoord, ?email, ?Telefoonnummer, ?bericht)", conn);
 
                 cmd.Parameters.Add("?voornaam", MySqlDbType.Text).Value = person.Voornaam;
                 cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.Achternaam;
+                cmd.Parameters.Add("?wachtwoord", MySqlDbType.Text).Value = person.Wachtwoord;
                 cmd.Parameters.Add("?email", MySqlDbType.Text).Value = person.Email;
                 cmd.Parameters.Add("?Telefoonnummer", MySqlDbType.Int32).Value = person.Telefoonnummer;
                 cmd.Parameters.Add("?bericht", MySqlDbType.Text).Value = person.Bericht;
