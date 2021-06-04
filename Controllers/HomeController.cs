@@ -124,6 +124,12 @@ namespace Bioscoop_Website_2021.Controllers
             return View();
         }
 
+        [Route("notfound")]
+        public IActionResult notfound()
+        {
+            return View();
+        }
+
         [Route("Films")]
         public IActionResult Films()
         {
