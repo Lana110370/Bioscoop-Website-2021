@@ -10,6 +10,8 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 using Microsoft.AspNetCore.Http;
 using Bioscoop_Website_2021.Database;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace Bioscoop_Website_2021.Controllers
 {
@@ -300,7 +302,23 @@ namespace Bioscoop_Website_2021.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        static string ComputeSha256Hash(string rawData)
+        {
+            // Create a SHA256   
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                // ComputeHash - returns byte array  
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
 
+                // Convert byte array to a string   
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
 
 
     }
