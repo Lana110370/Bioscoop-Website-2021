@@ -1,38 +1,40 @@
-﻿@using Bioscoop_Website_2021.Database
+﻿@using Bioscoop_Website_2021.Database;
 @model Person
 
 @{
     ViewData["Title"] = "Contact";
 }
 
-<div id="titeltekst">
-    <h1>@ViewData["Title"]</h1>
-    <p>Op deze pagina kunt u via het onderstaande formulier contact met ons opnemen. Wij doen ons best uw bericht zo spoedig mogelijk te verwerken</p>
-</div>
+
 
 <div id="Formulier">
+    <div id="titeltekst">
+        <h1>@ViewData["Title"]</h1>
+        <p>Op deze pagina kunt u via het onderstaande formulier contact met ons opnemen. Wij doen ons best uw bericht zo spoedig mogelijk te verwerken</p>
+    </div>
+
     <form method="post">
-        <div id="Voornaam">
+        <div id="input">
             <p>Voornaam:</p><input type="text" name="Voornaam" />
             @Html.ValidationMessageFor(m => m.Voornaam)
         </div> <br />
-        <div id="Achternaam">
+        <div id="input">
             <p>Achternaam:</p><input type="text" name="Achternaam" />
             @Html.ValidationMessageFor(m => m.Achternaam)
         </div> <br />
-        <div id="Email">
+        <div id="input">
             <p>Email:</p><input type="text" name="Email" />
             @Html.ValidationMessageFor(m => m.Email)
         </div> <br />
-        <div id="Telefoonnummer">
+        <div id="input">
             <p>Telefoonnummer:</p><input type="text" name="Telefoonnummer" />
             @Html.ValidationMessageFor(m => m.Telefoonnummer)
         </div> <br />
-        <div id="Bericht">
+        <div id="input">
             <p>Bericht:</p><input type="text" name="Bericht" />
             @Html.ValidationMessageFor(m => m.Bericht)
         </div> <br />
-        <div id=" Versturen"><input type="submit" value="Versturen" /></div>
+        <div id="Versturen"><input type="submit" value="Versturen" /></div>
     </form>
 </div>
 
@@ -43,45 +45,74 @@
 }
 
 <style>
-    #titeltekst {
-        text-align: center;
-        font-size: 20px;
-    }
-
     #Formulier {
-        text-align: center;
-        align-content: center;
+        width: 50vw;
+        height: 60vw;
+        background: #e6e6e6;
+        border-radius: 8px;
+        box-shadow: 0 0 40px -10px #000;
+        margin: calc(50vh - 220px) auto;
+        padding: 20px 30px;
+        max-width: calc(100vw - 40px);
+        box-sizing: border-box;
+        font-family: 'Montserrat',sans-serif;
+        position: relative;
+        color: #7c7c7c;
     }
 
-    #Voornaam input {
-        width: 200px;
-        height: 30px;
+    #Formulier h1 {
+        margin: 10px 0;
+        padding-bottom: 10px;
+        width: 180px;
+        color: #7c7c7c;
+        border-bottom: 3px solid #78788c
     }
 
-    #Achternaam input {
-        width: 200px;
-        height: 30px;
+    input {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        background: none;
+        outline: none;
+        resize: none;
+        border: 0;
+        font-family: 'Montserrat',sans-serif;
+        border-bottom: 2px solid #bebed2
     }
 
-    #Email input {
-        width: 200px;
-        height: 30px;
+        input:focus {
+            border-bottom: 2px solid #78788c
+        }
+
+    #input p {
+        color: #7c7c7c;
+    }
+    
+    p:before {
+        content: attr(type);
+        display: block;
+        margin: 28px 0 0;
+        font-size: 14px;
+        color: #7c7c7c;
     }
 
-    #Telefoonnummer input {
-        width: 200px;
-        height: 30px;
+    #Versturen {
+        float: right;
+        padding: 8px 12px;
+        margin: 8px 0 0;
+        font-family: 'Montserrat',sans-serif;
+        border: 2px solid #78788c;
+        background: 0;
+        color: #7c7c7c; 
+        cursor: pointer;
     }
 
-    #Bericht input {
-        width: 400px;
-        height: 200px;
+    #Versturen:hover {
+        background: #78788c;
+        color: #ffff;
     }
 
-    #Versturen input {
-        width: 400px;
-        height: 200px;
-        background-color: indianred;
-    }
+  
+
     
 </style>
