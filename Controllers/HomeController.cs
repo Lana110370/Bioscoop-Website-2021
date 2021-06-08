@@ -194,7 +194,11 @@ namespace Bioscoop_Website_2021.Controllers
 
         private void SavePerson(Person person)
         {
-          person.Wachtwoord = ComputeSha256Hash(person.Wachtwoord);
+            if (person.Wachtwoord != null)
+                person.Wachtwoord = ComputeSha256Hash(person.Wachtwoord);
+            else
+                person.Wachtwoord = "leeg";
+
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
