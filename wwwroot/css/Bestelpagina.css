@@ -1,1 +1,73 @@
-﻿
+﻿<style >
+#tekst1 {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+#tekst1 p {
+    font-size: 20px;
+}
+
+#overzicht {
+    text-align: center;
+    font-size: 20px;
+}
+
+#bananotekst {
+    font-size: 20px;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+#banano {
+    height: 180px;
+    width: 170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ban {
+    text-align: center;
+    font-size: 20px;
+}
+
+#uitleg {
+    font-size: 20px;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+    #uitleg a {
+        font-size: 20px;
+        color: black;
+    }
+
+#stappenplan a {
+    font-size: 20px;
+    color: black;
+}
+
+#stappenplan h3 {
+    font-size: 24px;
+    text-align: center;
+}
+
+#stappenplan p {
+    font-size: 20px;
+    text-align: center;
+}
+
+#lijst ul {
+    margin-left: 10vw;
+    font-size: 20px;
+}
+
+#lijst p {
+    margin-left: 10vw;
+    font-size: 20px;
+}
+
+</style >
