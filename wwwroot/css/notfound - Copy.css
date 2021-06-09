@@ -1,1 +1,24 @@
-﻿
+﻿<style >
+
+#tekst {
+    text-align: center;
+}
+
+#tekst p {
+    font-size: 20px;
+}
+
+#stappenplan {
+    font-size: 20px;
+    margin-left: 35vw;
+    margin-bottom: 3vw;
+}
+
+#alles img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5vw;
+}
+
+</style >
