@@ -1,10 +1,6 @@
 ﻿@using Bioscoop_Website_2021.Database;
 @model List<Datum>
 
-@{
-    var film = ViewData["film"] as List<Film>;
-}
-
 <div id="tekst1">
     <h1>Bestelpagina</h1>
     <p>
@@ -14,30 +10,17 @@
 </div>
 
 <div id="overzicht">
+
     @foreach (Datum q in Model)
 
     {
-
-    <form>
-        <input type="checkbox" id="datum" naam="voorstelling" value="Film" />
-        <label for="datum">@q.datumtijd</label>
-
-        @if (film != null)
-        {
-            foreach (var d in film) 
-            {
-                if film.id == q.film_id)
-                {
-                   <p>@d.Titel.ToString()</p>
-                }
-            }
-        }
-
-    </form>
-
+        
+            <form>
+                <input type="checkbox" id="datum" naam ="voorstelling" value="Film"/>
+                <label for="datum">@q.datumtijd</label> 
+            </form>
+        
     }
-
-   
 </div>
 
 <div id="bananotekst">
