@@ -144,8 +144,10 @@ namespace Bioscoop_Website_2021.Controllers
         public IActionResult Bestelpagina()
 
         {
-            var Dates = GetDates();
-            return View(Dates);
+            var model = GetDates();
+            var film = GetProducts();
+            ViewData["film"] = film.ToList();
+            return View(model);
 
 
         }
