@@ -2,63 +2,64 @@
 <html lang="en">
 
 <head>
-   
-    <link rel="stylesheet" href="~/css/site.css" />
 
+    <link rel="stylesheet" href="~/css/site.css" />
+    @RenderSection("style", false)
     <link rel="shortcut icon" href="img/Foto's LaMa Bios/LaMa Logo.png" />
 
 </head>
 
- <header>
-     <div id="logo"><img src="img/Foto's LaMa Bios/Bioscoop Logo.png" height="200" , width="212"></div>
-     <nav>
-         <ul>
-             <li><a href="/">Home</a></li>
-             <li><a href="/Films">Films</a></li>
-             <li><a href="/Contactoverzicht">Contact</a></li>
-             <li><a href="/Inloggen">Inloggen</a></li>
-         </ul>
-     </nav>
 
-     <a href ="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-         <div class="search">
-             <form action="#">
-                 <input type="text"
-                        placeholder="Zoeken..."
-                        name="search">
-             </form>
-         </div>
-     </a>
- </header>
+<header>
+    <div id="logo"><img src="img/Foto's LaMa Bios/Bioscoop Logo.png" height="200" , width="212"></div>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/Films">Films</a></li>
+            <li><a href="/Contactoverzicht">Contact</a></li>
+            <li><a href="/Inloggen">Inloggen</a></li>
+        </ul>
+    </nav>
+
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        <div class="search">
+            <form action="#">
+                <input type="text"
+                       placeholder="Zoeken..."
+                       name="search">
+            </form>
+        </div>
+    </a>
+</header>
 
 
- <body>
+<body>
     @RenderBody()
- </body>
+</body>
 
- <footer>
+<footer>
 
-     <div id="footer">
+    <div id="footer">
 
-         <div id="leftbox">
-             <p>
-                 <br> info@lamabiosdenhaag.com <br> <br> 070-7564532
-             </p>
-         </div>
+        <div id="leftbox">
+            <p>
+                <br> info@lamabiosdenhaag.com <br> <br> 070-7564532
+            </p>
+        </div>
 
-         <div id="middlebox">
-             <p>
-                 <br> <br> Adres: Spui 65, 2511 BL Den Haag
-             </p>
-         </div>
+        <div id="middlebox">
+            <p>
+                <br> <br> Adres: Spui 65, 2511 BL Den Haag
+            </p>
+        </div>
 
-         <div id="rightbox">
-             <p>
-                 <br> <br> LaMa Bioscoop
-             </p>
-         </div>
-     </div>
- </footer>
+        <div id="rightbox">
+            <p>
+                <br> <br> LaMa Bioscoop
+            </p>
+        </div>
+    </div>
+</footer>
 
 
 </html>
