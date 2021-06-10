@@ -11,14 +11,14 @@
     @foreach (Datum q in Model)
 
     {
-        
-            <form>
-                <input type="checkbox" id="datum" naam ="voorstelling" value="Film"/>
-                <label for="datum">@q.datumtijd</label> 
-            </form>
-        
-    }
-</div>
+    
+        <form>
+            <input type="checkbox" id="datum" naam="voorstelling" value="Film" />
+            <label for="datum">@q.datumtijd - @q.voorraad kaartjes beschikbaar</label>
+        </form>
+
+        }
+    </div>
 
 <div id="bananotekst">
     <h3>Onze betaalmethode</h3>

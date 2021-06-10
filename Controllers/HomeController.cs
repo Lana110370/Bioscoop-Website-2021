@@ -284,6 +284,7 @@ namespace Bioscoop_Website_2021.Controllers
                             id = Convert.ToInt32(reader["Id"]),
                             datumtijd = DateTime.Parse(reader["datumtijd"].ToString()),
                             film_id = Convert.ToInt32(reader["film_id"]),
+                            voorraad = reader["voorraad"].ToString(),
 
                         };
 

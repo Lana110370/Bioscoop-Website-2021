@@ -13,6 +13,8 @@ namespace Bioscoop_Website_2021.Database
 
         public int film_id { get; set; }
 
+        public string voorraad { get; set; }
+
 
     }
 }
