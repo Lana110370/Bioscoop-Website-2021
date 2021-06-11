@@ -297,10 +297,18 @@ namespace Bioscoop_Website_2021.Controllers
         [Route("Inloggen")]
         public IActionResult Inloggen(string username, string password)
         {
-            if (password == "geheim")
-            {
-                HttpContext.Session.SetString("User", username);
-                return Redirect("/");
+            if (!string.IsNullOrWhiteSpace(password)) { 
+                Person p = GetPerson(username);
+                if (p == null)
+                    return View();
+
+                string hash = ComputeSha256Hash(password);
+
+                if (p.Wachtwoord == hash)
+                {
+                    HttpContext.Session.SetString("User", username);
+                    return Redirect("/");
+                }
             }
 
             return View();
@@ -351,11 +359,38 @@ namespace Bioscoop_Website_2021.Controllers
             return View();
         }
 
+        private Person GetPerson(string gebruikersnaam)
+        {
+            List<Person> persons = new List<Person>();
 
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand($"select * from klant where gebruikersnaam = '{gebruikersnaam}'", conn);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Person p = new Person
+                        {
+                            // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
+                            Wachtwoord = reader["Wachtwoord"].ToString(),
+                            
+                        };
+
+                        persons.Add(p);
+                    }
+                }
             }
+            return persons[0];
+        }
 
 
-    
+    }
+
+
+
 
 
 }
