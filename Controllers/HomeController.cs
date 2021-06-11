@@ -117,13 +117,6 @@ namespace Bioscoop_Website_2021.Controllers
             return products;
         }
 
-
-        [Route("Privacy")]
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         [Route("notfound")]
         public IActionResult notfound()
         {
