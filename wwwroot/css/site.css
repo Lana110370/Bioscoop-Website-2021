@@ -15,8 +15,9 @@ header ul {
 
 header li {
       display: inline;
-      padding: 20px 60px 20px 60px;
-    }
+      padding: 30px 60px 30px 60px;
+      
+    } 
 
 header a {
       color: #ffffff;
@@ -28,7 +29,7 @@ header a {
         margin-top: 90px;
         margin-bottom: 10px;
         float: left;
-        margin-left: 100px;
+        margin-left: 165px;
     }
 
 .search input[type=text] {
