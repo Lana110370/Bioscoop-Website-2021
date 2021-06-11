@@ -31,8 +31,7 @@ namespace Bioscoop_Website_2021.Controllers
 
         public IActionResult Index()
         {
-            ViewData["user"] = HttpContext.Session.GetString("User");
-
+           
             // alle namen ophalen
             var film = GetProducts();
 
@@ -307,9 +306,17 @@ namespace Bioscoop_Website_2021.Controllers
                 if (p.Wachtwoord == hash)
                 {
                     HttpContext.Session.SetString("User", username);
-                    return Redirect("/");
+                    return Redirect("/ingelogd");
                 }
             }
+
+            return View();
+        }
+
+        [Route("ingelogd")]
+        public IActionResult ingelogd()
+        {
+            ViewData["user"] = HttpContext.Session.GetString("User");
 
             return View();
         }
