@@ -19,8 +19,8 @@ namespace Bioscoop_Website_2021.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         // stel in waar de database gevonden kan worden
-        private readonly string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
-        //private readonly string connectionString = "Server=172.16.160.21;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
+        //private readonly string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
+        private readonly string connectionString = "Server=172.16.160.21;Port=3306;Database=110370;Uid=110370;Pwd=inf2021sql;";
         // link voor in de les op school
 
         public HomeController(ILogger<HomeController> logger)
@@ -99,12 +99,12 @@ namespace Bioscoop_Website_2021.Controllers
                             // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
                             id = Convert.ToInt32(reader["Id"]),
                             Titel = reader["Titel"].ToString(),
-                            Genre = Convert.ToInt32(reader["genre_id"]),
+                            Genre = reader["Genre"].ToString(),
                             Tijdsduur = Convert.ToInt32(reader["Tijdsduur(min)"]),
                             Leeftijdsgrens = Convert.ToInt32(reader["Leeftijdsgrens"]),
                             Beschrijving = reader["Beschrijving"].ToString(),
                             Img = reader["foto"].ToString(),
-                            Trailer = reader["Trailer"].ToString()
+                            
                         };
 
                         // voeg de naam toe aan de lijst met namen
@@ -246,12 +246,13 @@ namespace Bioscoop_Website_2021.Controllers
                             // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
                             id = Convert.ToInt32(reader["Id"]),
                             Titel = reader["Titel"].ToString(),
-                            Genre = Convert.ToInt32(reader["genre_id"]),
+                            Genre = reader["genre"].ToString(),
                             Tijdsduur = Convert.ToInt32(reader["Tijdsduur(min)"]),
                             Leeftijdsgrens = Convert.ToInt32(reader["Leeftijdsgrens"]),
                             Beschrijving = reader["Beschrijving"].ToString(),
                             Img = reader["foto"].ToString()
                         };
+
                         films.Add(p);
                     }
                 }
@@ -272,7 +273,7 @@ namespace Bioscoop_Website_2021.Controllers
                 conn.Open();
 
                 // SQL query die we willen uitvoeren
-                MySqlCommand cmd = new MySqlCommand("select * from `voorstelling-datum`", conn);
+                MySqlCommand cmd = new MySqlCommand("select * from voorstelling", conn);
 
                 // resultaat van de query lezen
                 using (var reader = cmd.ExecuteReader())
