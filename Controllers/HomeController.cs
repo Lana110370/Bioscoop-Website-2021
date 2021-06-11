@@ -204,10 +204,11 @@ namespace Bioscoop_Website_2021.Controllers
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, wachtwoord, email,Telefoonnummer, bericht) VALUES(?voornaam, ?achternaam, ?wachtwoord, ?email, ?Telefoonnummer, ?bericht)", conn);
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, gebruikersnaam, wachtwoord, email,Telefoonnummer, bericht) VALUES(?voornaam, ?achternaam, ?gebruikersnaam, ?wachtwoord, ?email, ?Telefoonnummer, ?bericht)", conn);
 
                 cmd.Parameters.Add("?voornaam", MySqlDbType.Text).Value = person.Voornaam;
                 cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.Achternaam;
+                cmd.Parameters.Add("?gebruikersnaam", MySqlDbType.Text).Value = person.Gebruikersnaam;
                 cmd.Parameters.Add("?wachtwoord", MySqlDbType.Text).Value = person.Wachtwoord;
                 cmd.Parameters.Add("?email", MySqlDbType.Text).Value = person.Email;
                 cmd.Parameters.Add("?Telefoonnummer", MySqlDbType.Int32).Value = person.Telefoonnummer;
@@ -359,9 +360,12 @@ namespace Bioscoop_Website_2021.Controllers
 
 
             }
+
+
     
+
+
 }
 
-    
 
-    
+

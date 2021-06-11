@@ -2,7 +2,7 @@
 @model Person
 
 @{
-    ViewData["Title"] = "Contact";
+    ViewData["Title"] = "Contact/Registratie";
 }
 
 @section style{
@@ -12,7 +12,8 @@
 <div id="Formulier">
     <div id="titeltekst">
         <h1>@ViewData["Title"]</h1>
-        <p>Op deze pagina kunt u via het onderstaande formulier contact met ons opnemen. Wij doen ons best uw bericht zo spoedig mogelijk te verwerken</p>
+        <p>Op deze pagina kunt u via het onderstaande formulier contact met ons opnemen. Wij doen ons best uw bericht zo spoedig mogelijk te verwerken.
+        Ons contactformulier fungeert tevens als registratieformulier.</p>
     </div>
 
     <form method="post">
@@ -25,6 +26,15 @@
             @Html.ValidationMessageFor(m => m.Achternaam)
         </div> <br />
         <div id="input">
+            <p>Gebruikersnaam:</p><input type="text" name="Gebruikersnaam" />
+            @Html.ValidationMessageFor(m => m.Gebruikersnaam)
+        </div> <br />
+        <div id="input">
+            <p>Wachtwoord:</p><input type="text" name="Wachtwoord" />
+            @Html.ValidationMessageFor(m => m.Wachtwoord)
+        </div> <br />
+
+        <div id="input">
             <p>Email:</p><input type="text" name="Email" />
             @Html.ValidationMessageFor(m => m.Email)
         </div> <br />
@@ -34,7 +44,6 @@
         </div> <br />
         <div id="input">
             <p>Bericht:</p><input type="text" name="Bericht" />
-            @Html.ValidationMessageFor(m => m.Bericht)
         </div> <br />
         <div id="Versturen"><input type="submit" value="Versturen" /></div>
     </form>
